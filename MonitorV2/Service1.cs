@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Timers;
 
 
-namespace OCSService
+namespace MonitorV2
 {
     public partial class Service1 : ServiceBase
     {

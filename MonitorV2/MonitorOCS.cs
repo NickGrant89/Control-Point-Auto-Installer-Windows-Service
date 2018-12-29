@@ -11,7 +11,7 @@ using System.Net.NetworkInformation;
 using System.ServiceProcess;
 using System.Xml.Linq;
 
-namespace OCSService
+namespace MonitorV2
 {
     class MonitorV1
     {

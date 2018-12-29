@@ -7,7 +7,7 @@ using RestSharp.Authenticators;
 using System.Linq;
 using Newtonsoft.Json;
 
-namespace OCSService
+namespace MonitorV2
 {
     class MyDevice
     {

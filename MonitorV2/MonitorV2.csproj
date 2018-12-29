@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D1B410C0-BD54-498C-8D66-9C1CCBA694E1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>OCSService</RootNamespace>
-    <AssemblyName>OCSService</AssemblyName>
+    <RootNamespace>MonitorV2</RootNamespace>
+    <AssemblyName>MonitorV2</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

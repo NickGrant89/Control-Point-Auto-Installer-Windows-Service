@@ -18,7 +18,7 @@ using System.Xml;
 using System.Xml.Linq;
 
 
-namespace OCSService
+namespace MonitorV2
 {
     class DarkTools
     {

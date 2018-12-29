@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorV2", "MonitorV2\MonitorV2.csproj", "{D1B410C0-BD54-498C-8D66-9C1CCBA694E1}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "OneC Installer", "MonitorV2Installer\MonitorV2Installer.vdproj", "{CB3C6D1A-229F-46D6-B1F9-DF1D12DB3D9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1B410C0-BD54-498C-8D66-9C1CCBA694E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B410C0-BD54-498C-8D66-9C1CCBA694E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B410C0-BD54-498C-8D66-9C1CCBA694E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B410C0-BD54-498C-8D66-9C1CCBA694E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB3C6D1A-229F-46D6-B1F9-DF1D12DB3D9E}.Debug|Any CPU.ActiveCfg = Debug
+		{CB3C6D1A-229F-46D6-B1F9-DF1D12DB3D9E}.Debug|Any CPU.Build.0 = Debug
+		{CB3C6D1A-229F-46D6-B1F9-DF1D12DB3D9E}.Release|Any CPU.ActiveCfg = Release
+		{CB3C6D1A-229F-46D6-B1F9-DF1D12DB3D9E}.Release|Any CPU.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBA5A133-8958-44D5-8CDD-64DD48EBC397}
+	EndGlobalSection
+EndGlobal

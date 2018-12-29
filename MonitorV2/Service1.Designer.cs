@@ -1,4 +1,4 @@
-﻿namespace OCSService
+﻿namespace MonitorV2
 {
     partial class Service1
     {

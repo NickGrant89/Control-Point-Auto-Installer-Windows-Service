@@ -7,7 +7,7 @@ using System.IO;
 using RestSharp;
 using RestSharp.Authenticators;
 
-namespace OCSService
+namespace MonitorV2
 {
     class LogFile
     {

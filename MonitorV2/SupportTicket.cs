@@ -6,7 +6,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OCSService
+namespace MonitorV2
 {
     class SupportTicket
     {

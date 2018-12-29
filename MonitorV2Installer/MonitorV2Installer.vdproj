@@ -27,50 +27,50 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_7F8803AAE21F526CF9CC5BB3CEFC8700"
+        "MsmKey" = "8:_A1396CAD6FFBF36D602DAB713ACF0982"
+        "OwnerKey" = "8:_C463B54F6638385191D0EDDD26176602"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A1396CAD6FFBF36D602DAB713ACF0982"
         "OwnerKey" = "8:_0B4EACDD6C5C40B1AF246D4293394024"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8917F2EAA35CB535566F540BBA991C7D"
+        "MsmKey" = "8:_B72F1E0ABB88E9C7610BADB1226F5409"
         "OwnerKey" = "8:_0B4EACDD6C5C40B1AF246D4293394024"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_AF31CE80D7E9AF5F4AB039FC8ADCDB24"
-        "OwnerKey" = "8:_8917F2EAA35CB535566F540BBA991C7D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_AF31CE80D7E9AF5F4AB039FC8ADCDB24"
-        "OwnerKey" = "8:_0B4EACDD6C5C40B1AF246D4293394024"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_C463B54F6638385191D0EDDD26176602"
         "OwnerKey" = "8:_0B4EACDD6C5C40B1AF246D4293394024"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8917F2EAA35CB535566F540BBA991C7D"
+        "OwnerKey" = "8:_0B4EACDD6C5C40B1AF246D4293394024"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AF31CE80D7E9AF5F4AB039FC8ADCDB24"
+        "OwnerKey" = "8:_C463B54F6638385191D0EDDD26176602"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7F8803AAE21F526CF9CC5BB3CEFC8700"
+        "OwnerKey" = "8:_A1396CAD6FFBF36D602DAB713ACF0982"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B72F1E0ABB88E9C7610BADB1226F5409"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -87,7 +87,7 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:Debug\\CSTQSR Installer.msi"
+        "OutputFilename" = "8:Debug\\MonitorV2Installer.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -233,14 +233,45 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7F8803AAE21F526CF9CC5BB3CEFC8700"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A1396CAD6FFBF36D602DAB713ACF0982"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_A1396CAD6FFBF36D602DAB713ACF0982"
+                    {
+                    "Name" = "8:System.ValueTuple.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.ValueTuple.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_5FECD9E3F56949669B23324CAB090233"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B72F1E0ABB88E9C7610BADB1226F5409"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_7F8803AAE21F526CF9CC5BB3CEFC8700"
+                    "_B72F1E0ABB88E9C7610BADB1226F5409"
                     {
                     "Name" = "8:Newtonsoft.Json.dll"
                     "Attributes" = "3:512"
@@ -264,51 +295,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8917F2EAA35CB535566F540BBA991C7D"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C463B54F6638385191D0EDDD26176602"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:RestSharp, Version=106.2.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_8917F2EAA35CB535566F540BBA991C7D"
+                    "_C463B54F6638385191D0EDDD26176602"
                     {
                     "Name" = "8:RestSharp.dll"
                     "Attributes" = "3:512"
                     }
                 }
             "SourcePath" = "8:RestSharp.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_5FECD9E3F56949669B23324CAB090233"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AF31CE80D7E9AF5F4AB039FC8ADCDB24"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_AF31CE80D7E9AF5F4AB039FC8ADCDB24"
-                    {
-                    "Name" = "8:System.ValueTuple.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:System.ValueTuple.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5FECD9E3F56949669B23324CAB090233"
@@ -904,7 +904,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_0B4EACDD6C5C40B1AF246D4293394024"
             {
-            "SourcePath" = "8:..\\CSTQSRService\\obj\\Debug\\CSTQSRService.exe"
+            "SourcePath" = "8:..\\MonitorV2\\obj\\Debug\\MonitorV2.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5FECD9E3F56949669B23324CAB090233"
