@@ -40,8 +40,8 @@
             // 
             // serviceInstaller1
             // 
-            this.serviceInstaller1.Description = "One C Monitor Tool";
-            this.serviceInstaller1.ServiceName = "One C Monitor";
+            this.serviceInstaller1.Description = "One C Monitor Tool V2";
+            this.serviceInstaller1.ServiceName = "One C Monitor V2";
             this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             this.serviceInstaller1.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.serviceInstaller1_AfterInstall);
             // 

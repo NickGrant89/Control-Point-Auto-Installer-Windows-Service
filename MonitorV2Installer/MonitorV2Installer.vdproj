@@ -3,14 +3,15 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:OneC Installer"
+"ProjectName" = "8:One C Installer"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
-"SccProjectName" = "8:SAK"
-"SccLocalPath" = "8:SAK"
-"SccAuxPath" = "8:SAK"
-"SccProvider" = "8:SAK"
+"SccProjectName" = "8:"
+"SccLocalPath" = "8:"
+"SccAuxPath" = "8:"
+"SccProvider" = "8:"
+"BackwardsCompatibleGUIDGeneration" = "8:TRUE"
     "Hierarchy"
     {
         "Entry"
@@ -21,62 +22,62 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_29BA8FCA422CF7FFEF23CE4044D85C70"
+        "MsmKey" = "8:_15C486CB310619F873251B28EBA6FC37"
         "OwnerKey" = "8:_0B4EACDD6C5C40B1AF246D4293394024"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A1396CAD6FFBF36D602DAB713ACF0982"
-        "OwnerKey" = "8:_C463B54F6638385191D0EDDD26176602"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A1396CAD6FFBF36D602DAB713ACF0982"
+        "MsmKey" = "8:_4662F726EC43A36FF75E57E3AB3040E8"
         "OwnerKey" = "8:_0B4EACDD6C5C40B1AF246D4293394024"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B72F1E0ABB88E9C7610BADB1226F5409"
+        "MsmKey" = "8:_8ED9824421EBAD1428838A11C52DC18A"
+        "OwnerKey" = "8:_A09422A0B0312B7CF9634FA2FEAB8B9B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8ED9824421EBAD1428838A11C52DC18A"
         "OwnerKey" = "8:_0B4EACDD6C5C40B1AF246D4293394024"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C463B54F6638385191D0EDDD26176602"
-        "OwnerKey" = "8:_0B4EACDD6C5C40B1AF246D4293394024"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_A09422A0B0312B7CF9634FA2FEAB8B9B"
         "OwnerKey" = "8:_0B4EACDD6C5C40B1AF246D4293394024"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C463B54F6638385191D0EDDD26176602"
+        "OwnerKey" = "8:_0B4EACDD6C5C40B1AF246D4293394024"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A1396CAD6FFBF36D602DAB713ACF0982"
+        "OwnerKey" = "8:_A09422A0B0312B7CF9634FA2FEAB8B9B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B72F1E0ABB88E9C7610BADB1226F5409"
+        "OwnerKey" = "8:_8ED9824421EBAD1428838A11C52DC18A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_29BA8FCA422CF7FFEF23CE4044D85C70"
+        "OwnerKey" = "8:_15C486CB310619F873251B28EBA6FC37"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_4662F726EC43A36FF75E57E3AB3040E8"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -202,76 +203,14 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_29BA8FCA422CF7FFEF23CE4044D85C70"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-                "ScatterAssemblies"
-                {
-                    "_29BA8FCA422CF7FFEF23CE4044D85C70"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:System.Net.Http.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_5FECD9E3F56949669B23324CAB090233"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A1396CAD6FFBF36D602DAB713ACF0982"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_A1396CAD6FFBF36D602DAB713ACF0982"
-                    {
-                    "Name" = "8:System.ValueTuple.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:System.ValueTuple.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_5FECD9E3F56949669B23324CAB090233"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B72F1E0ABB88E9C7610BADB1226F5409"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_15C486CB310619F873251B28EBA6FC37"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B72F1E0ABB88E9C7610BADB1226F5409"
+                    "_15C486CB310619F873251B28EBA6FC37"
                     {
                     "Name" = "8:Newtonsoft.Json.dll"
                     "Attributes" = "3:512"
@@ -295,14 +234,76 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C463B54F6638385191D0EDDD26176602"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4662F726EC43A36FF75E57E3AB3040E8"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+                "ScatterAssemblies"
+                {
+                    "_4662F726EC43A36FF75E57E3AB3040E8"
+                    {
+                    "Name" = "8:System.Net.Http.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Net.Http.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_5FECD9E3F56949669B23324CAB090233"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8ED9824421EBAD1428838A11C52DC18A"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_8ED9824421EBAD1428838A11C52DC18A"
+                    {
+                    "Name" = "8:System.ValueTuple.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.ValueTuple.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_5FECD9E3F56949669B23324CAB090233"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A09422A0B0312B7CF9634FA2FEAB8B9B"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:RestSharp, Version=106.2.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_C463B54F6638385191D0EDDD26176602"
+                    "_A09422A0B0312B7CF9634FA2FEAB8B9B"
                     {
                     "Name" = "8:RestSharp.dll"
                     "Attributes" = "3:512"
@@ -381,22 +382,22 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:OneC Installer"
-        "ProductCode" = "8:{74BB4FC6-AFFB-4A88-BF71-B8D68ED20804}"
-        "PackageCode" = "8:{7D023488-76F1-483D-9F33-20C04771541A}"
+        "ProductName" = "8:One C Monitor Tool V2"
+        "ProductCode" = "8:{24ABB935-0721-40FD-940B-20A791C609F6}"
+        "PackageCode" = "8:{18233725-29E8-4678-8C10-C7FB6A18F866}"
         "UpgradeCode" = "8:{DA903F64-0283-4C5E-8E50-67F5A54D5893}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:2.0.0"
         "Manufacturer" = "8:OCS"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:OneC Installer"
+        "Title" = "8:One C Monitor Tool V2"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:OneC Support"
+        "ARPCONTACT" = "8:One C"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
