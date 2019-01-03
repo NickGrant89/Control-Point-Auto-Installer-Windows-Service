@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
 using RestSharp.Authenticators;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,10 @@ namespace MonitorV2
 {
     class API
     {
+
         public static string domainName()
         {
-            return "https://register.onec.systems";
+            return "https://portal.onec.systems";
         }
 
         public static string userName()
@@ -25,32 +27,51 @@ namespace MonitorV2
             return "KF#hsrDx@MfilSQJa&g*C2vU";
         }
 
-        public static string Get(string Domain, string id, string username, string password, string contentType, string extra)
-        {
-            var client = new RestClient(Domain + "/wp-json/acf/v3/" + contentType + "/" + id + "/" + extra);
-            client.Authenticator = new HttpBasicAuthenticator(userName(), passWord());
-            var request2 = new RestRequest(Method.GET);
-            request2.AddHeader("content-type", "application/json");
-            IRestResponse response2 = client.Execute(request2);
-
-            return response2.Content.ToString();
-        }
-
-        public static string Post(string domain, string id, string username, string password, string contentType, string content, string extra)
+        public static string getAuth()
         {
 
-            var content1 = content;
-
-            var client = new RestClient(domain + "/wp-json/acf/v3/" + contentType + "/" + id + "/" + extra);
-            client.Authenticator = new HttpBasicAuthenticator(userName(), passWord());
+            var client = new RestClient(API.domainName() + "/api/v1/auth/login");
             var request2 = new RestRequest(Method.POST);
             request2.AddHeader("content-type", "application/json");
-            //request2.AddJsonBody(content1); //<-- this will serialize and add the model as a JSON body.
-            request2.AddParameter("application/json", content1, ParameterType.RequestBody);
+            request2.AddParameter("undefined", "{\n\t\"email\":\"nickgrant1989@live.co.uk\",\n\t\"password\":\"Bea27yee\"\n}", ParameterType.RequestBody);
             IRestResponse response2 = client.Execute(request2);
 
-            return null;
+            if (response2.StatusCode.ToString() == "0")
+            {
+                return "";
+            }
+            else
+            {
+                //Response to Var 
+                Console.WriteLine(response2.Content.ToString());
+                //Deserialize to object
+                DeviceModel.Auth auth = JsonConvert.DeserializeObject<DeviceModel.Auth>(response2.Content);
+
+                return auth.token.ToString();
+            }
         }
+
+        public static void findID()
+        {
+            var client = new RestClient(API.domainName() + "/api/v1/devices/find/" + MyDevice.getMACAddress());
+            var request2 = new RestRequest(Method.GET);
+            request2.AddHeader("content-type", "application/json");
+            request2.AddHeader("Authorization", "bearer " + API.getAuth());
+            IRestResponse response2 = client.Execute(request2);
+
+            if(response2.Content == "Not Found!")
+            {
+                FunctionsV2.deviceCheckIn();
+               
+            }
+            else
+            {
+                //Deserialize to object
+                DeviceModel.RootObject device = JsonConvert.DeserializeObject<DeviceModel.RootObject>(response2.Content);
+                FunctionsV2.writeTxtFile(@"C:\ProgramData\Onec\Config\id.txt", device._id);
+            }
+        }
+
 
 
 

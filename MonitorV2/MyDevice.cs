@@ -1,25 +1,210 @@
 ﻿using System;
 using System.IO;
-using Microsoft.VisualBasic.Devices;
 using System.Management;
 using RestSharp;
 using RestSharp.Authenticators;
 using System.Linq;
-using Newtonsoft.Json;
+using Microsoft.VisualBasic.Devices;
+using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using System.Diagnostics;
+using System.Threading;
+using System.Net;
+using System.Net.Sockets;
+using System.Text.RegularExpressions;
 
 namespace MonitorV2
 {
     class MyDevice
     {
+        public static string getPcName()
+        {
+            string pcName = Environment.MachineName.ToString();
+            return pcName;
 
-        //Register API Wordpress post details
+        }
+
+        //Get Local IP Address
+        public static string getLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("No network adapters with an IPv4 address in the system!");
+
+        }
+
+        //Gets Mac Address()
+        public static string getMACAddress()
+        {
+
+
+
+            NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+            String sMacAddress = string.Empty;
+            foreach (NetworkInterface adapter in nics)
+            {
+                if (sMacAddress == String.Empty)// only return MAC Address from first card  
+                {
+                    IPInterfaceProperties properties = adapter.GetIPProperties();
+                    sMacAddress = adapter.GetPhysicalAddress().ToString();
+                }
+            }
+
+            return sMacAddress;
+            //Library.WriteErrorLog("Registering");
+
+
+        }
+
+        //Gets IP external Address()
+        public static string getExternalIp()
+        {
+            try
+            {
+                string externalIP;
+                externalIP = (new WebClient()).DownloadString("http://checkip.dyndns.org/");
+                externalIP = (new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"))
+                             .Matches(externalIP)[0].ToString();
+
+
+                return externalIP;
+            }
+            catch { return null; }
+        }
+
+        public static string getProcessor()
+        {
+
+            ManagementObjectSearcher myProcessorObject = new ManagementObjectSearcher("select * from Win32_Processor");
+            List<string> list = new List<string>();
+
+            foreach (ManagementObject obj in myProcessorObject.Get())
+            {
+               
+                list.Add((""+ obj["Name"]));
+
+            }
+
+            return list[0].ToString();
+            
+        }
+
+        public static string getNetworkcards()
+        {
+            NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+
+            if (nics == null || nics.Length < 1)
+            {
+                Console.WriteLine("  No network interfaces found.");
+            }
+            else
+            {
+                foreach (NetworkInterface adapter in nics)
+                {
+                    IPInterfaceProperties properties = adapter.GetIPProperties();
+                    Console.WriteLine();
+                    Console.WriteLine(adapter.Description);
+                    Console.WriteLine(String.Empty.PadLeft(adapter.Description.Length, '='));
+                    Console.WriteLine("  Interface type .......................... : {0}", adapter.NetworkInterfaceType);
+                    Console.WriteLine("  Physical Address ........................ : {0}", adapter.GetPhysicalAddress().ToString());
+                    Console.WriteLine("  Operational status ...................... : {0}", adapter.OperationalStatus);
+                }
+            }
+
+            return "";
+        }
+
+        public static void showNetworkInterfaces()
+        {
+            IPGlobalProperties computerProperties = IPGlobalProperties.GetIPGlobalProperties();
+            NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+            Console.WriteLine("Interface information for {0}.{1}     ",
+                    computerProperties.HostName, computerProperties.DomainName);
+            if (nics == null || nics.Length < 1)
+            {
+                Console.WriteLine("  No network interfaces found.");
+                return;
+            }
+
+            Console.WriteLine("  Number of interfaces .................... : {0}", nics.Length);
+
+            foreach (NetworkInterface adapter in nics)
+            {
+                IPInterfaceProperties properties = adapter.GetIPProperties();
+                Console.WriteLine();
+                Console.WriteLine(adapter.Description);
+                Console.WriteLine(String.Empty.PadLeft(adapter.Description.Length, '='));
+                Console.WriteLine("  Interface type .......................... : {0}", adapter.NetworkInterfaceType);
+                Console.WriteLine("  Physical Address ........................ : {0}",
+                            adapter.GetPhysicalAddress().ToString());
+                Console.WriteLine("  Operational status ...................... : {0}",
+                    adapter.OperationalStatus);
+                string versions = "";
+
+                // Create a display string for the supported IP versions.
+                if (adapter.Supports(NetworkInterfaceComponent.IPv4))
+                {
+                    versions = "IPv4";
+                }
+                if (adapter.Supports(NetworkInterfaceComponent.IPv6))
+                {
+                    if (versions.Length > 0)
+                    {
+                        versions += " ";
+                    }
+                    versions += "IPv6";
+                }
+                Console.WriteLine("  IP version .............................. : {0}", versions);
+                //ShowIPAddresses(properties);
+
+                // The following information is not useful for loopback adapters.
+                if (adapter.NetworkInterfaceType == NetworkInterfaceType.Loopback)
+                {
+                    continue;
+                }
+                Console.WriteLine("  DNS suffix .............................. : {0}",
+                    properties.DnsSuffix);
+
+                string label;
+                if (adapter.Supports(NetworkInterfaceComponent.IPv4))
+                {
+                    IPv4InterfaceProperties ipv4 = properties.GetIPv4Properties();
+                    Console.WriteLine("  MTU...................................... : {0}", ipv4.Mtu);
+                    if (ipv4.UsesWins)
+                    {
+
+                        IPAddressCollection winsServers = properties.WinsServersAddresses;
+                        if (winsServers.Count > 0)
+                        {
+                            label = "  WINS Servers ............................ :";
+                            //ShowIPAddresses(label, winsServers);
+                        }
+                    }
+                }
+
+                Console.WriteLine("  DNS enabled ............................. : {0}",
+                    properties.IsDnsEnabled);
+                Console.WriteLine("  Dynamically configured DNS .............. : {0}",
+                    properties.IsDynamicDnsEnabled);
+                Console.WriteLine("  Receive Only ............................ : {0}",
+                    adapter.IsReceiveOnly);
+                Console.WriteLine("  Multicast ............................... : {0}",
+                    adapter.SupportsMulticast);
+            }
+        }
 
         public static string WindowsVer()
         {
             var name = (from x in new ManagementObjectSearcher("SELECT Caption FROM Win32_OperatingSystem").Get().Cast<ManagementObject>()
                         select x.GetPropertyValue("Caption")).FirstOrDefault();
 
-
+     
 
             return name.ToString();
 
@@ -27,23 +212,23 @@ namespace MonitorV2
 
         public static string AntiVirus()
         {
-
+           
             using (var antiVirusSearch = new ManagementObjectSearcher(@"\\" + Environment.MachineName + @"\root\SecurityCenter2", "Select * from AntivirusProduct"))
             {
                 var getSearchResult = antiVirusSearch.Get();
                 foreach (var searchResult in getSearchResult)
                 {
-
+                    
                     string WindowsAntivirus1 = searchResult["displayName"].ToString();
                     return WindowsAntivirus1;
-
+               
                 }
 
                 return null;
             }
-
+            
         }
-
+    
         public static string FreeHDDSpace()
         {
             try
@@ -105,108 +290,6 @@ namespace MonitorV2
 
         }
 
-        public static void MyDevicePostInfo()
-        {
-
-            try
-            {
-
-                DarkTools.ReadPostIDXml();
-
-                var acf_fields = new
-                {
-
-                    //Post to ACF Fields
-                    my_device = new // You must have this for ACf
-                    {  //<--This needs to be a proper object
-
-                        windows_version = WindowsVer(),
-                        hard_drive_space = FreeHDDSpace(),
-                        available_memory = PhysicalMemory(),
-                        ex_ip_address = DarkTools.getExternalIp().ToString(),
-                        antivirus = AntiVirus(),
-                        last_updated_md = GetUptime().ToString(),
-                        last_updated_mocs = DateTime.Now.ToString(),
-
-
-                    },  //END You must have this for ACf
-
-                };
-
-                var content1 = new
-                {
-                    acf_fields = new
-                    {
-                        my_device = acf_fields,
-                    }
-                };
-
-                var client = new RestClient(API.domainName() + "/wp-json/acf/v3/posts/" + DarkTools.ReadXMLID);
-                client.Authenticator = new HttpBasicAuthenticator(API.userName(), API.passWord());
-                var request2 = new RestRequest(Method.POST);
-                request2.AddHeader("content-type", "application/json");
-                request2.AddJsonBody(content1); //<-- this will serialize and add the model as a JSON body.
-                IRestResponse response2 = client.Execute(request2);
-
-            }
-            catch
-            {
-
-            }
-        }
-
-        public static void MyDeviceClientPostInfo()
-        {
-
-            try
-            {
-
-                DarkTools.ReadPostIDXml();
-
-                hddSpaceCha();
-
-                var acf_fields = new
-                {
-
-                    //Post to ACF Fields
-                    my_device = new // You must have this for ACf
-                    {  //<--This needs to be a proper object
-
-                        windows_version = WindowsVer(),
-                        hard_drive_space = FreeHDDSpace(),
-                        available_memory = PhysicalMemory(),
-                        ex_ip_address = DarkTools.getExternalIp().ToString(),
-                        antivirus = AntiVirus(),
-                        last_updated_md = GetUptime().ToString(),
-                        last_updated_mocs = DateTime.Now.ToString("HH:mm dd-MM-yyyy"),
-
-
-                    },  //END You must have this for ACf
-
-                };
-
-                var content1 = new
-                {
-                    acf_fields = new
-                    {
-                        my_device = acf_fields,
-                    }
-                };
-
-                var client = new RestClient("https://" + DarkTools.ReadSiteEndpoint + "/wp-json/acf/v3/posts/" + MonitorV1.getPostIDV1());
-                client.Authenticator = new HttpBasicAuthenticator(API.userName(), API.passWord());
-                var request2 = new RestRequest(Method.POST);
-                request2.AddHeader("content-type", "application/json");
-                request2.AddJsonBody(content1); //<-- this will serialize and add the model as a JSON body.
-                IRestResponse response2 = client.Execute(request2);
-
-            }
-            catch
-            {
-
-            }
-        }
-
         public static void hddSpaceCha()
         {
             try
@@ -222,16 +305,7 @@ namespace MonitorV2
                 string totalSpace = answer2.ToString();
                 string freeSpace = answer1.ToString();
 
-                //Devices data for ACf field repeater
-                string PostList = "{\"acf_fields\":{\"hard_drive_cha\":[{\"total_size_cha\":\"" + totalSpace + "\",\"available_space_cha\":\"" + freeSpace + "\",\"used_space_cha\":\"" + answer3 + "\",\"last_updated_cha\":\"" + DarkTools.timestamp.ToString() + "\"}]}}";
-
-                var client2 = new RestClient("https://" + DarkTools.ReadSiteEndpoint + "/wp-json/acf/v3/posts/" + MonitorV1.getPostIDV1());
-                client2.Authenticator = new HttpBasicAuthenticator("nick", "Bea27yee");
-                var request3 = new RestRequest(Method.POST);
-                request3.AddHeader("content-type", "application/json");
-                //request2.AddJsonBody(nick2); //<-- this will serialize and add the model as a JSON body.
-                request3.AddParameter("application/json", PostList, ParameterType.RequestBody); //This will add raw json data
-                IRestResponse response3 = client2.Execute(request3);
+                
 
             }
             catch
@@ -239,6 +313,103 @@ namespace MonitorV2
 
 
             }
+        }
+
+        public static string TotalSpace()
+        {
+            try
+            {
+                DriveInfo driveInfo = new DriveInfo(@"C:");
+                long totalSize = driveInfo.TotalSize;
+                long FreeSpace = driveInfo.AvailableFreeSpace;
+                long GB = 1024;
+                long answer2 = totalSize / GB / GB / GB;
+
+                string totalspace = answer2.ToString();
+
+                return totalspace;
+
+
+
+
+            }
+            catch
+            {
+                return null;
+
+            }
+        }
+
+        public static string freeSpace()
+        {
+            try
+            {
+                DriveInfo driveInfo = new DriveInfo(@"C:");
+                long FreeSpace = driveInfo.AvailableFreeSpace;
+                long GB = 1024;
+                long answer1 = FreeSpace / GB / GB / GB;
+
+                string freeSpace = answer1.ToString();
+
+                return freeSpace;
+
+
+
+            }
+            catch
+            {
+
+                return null;
+            }
+        }
+
+        public static string usedSpace()
+        {
+            try
+            {
+                DriveInfo driveInfo = new DriveInfo(@"C:");
+                long totalSize = driveInfo.TotalSize;
+                long FreeSpace = driveInfo.AvailableFreeSpace;
+                long GB = 1024;
+                long answer1 = FreeSpace / GB / GB / GB;
+                long answer2 = totalSize / GB / GB / GB;
+                long answer3 = answer2 - answer1;
+
+                string totalSpace = answer2.ToString();
+                string freeSpace = answer1.ToString();
+
+                return answer3.ToString();
+
+
+            }
+            catch
+            {
+
+                return null;
+
+            }
+        }
+
+        public static void getCPUStats()
+        {
+
+            var processName = Process.GetCurrentProcess().ProcessName;
+            PerformanceCounter ramCounter = new PerformanceCounter("Process", "Working Set - Private", processName);
+            PerformanceCounter cpuCounter = new PerformanceCounter("Process", "% Processor Time", processName);
+
+            while (true)
+            {
+                double ram = ramCounter.NextValue();
+                double cpu = cpuCounter.NextValue() / Environment.ProcessorCount;
+
+                Console.Clear();
+                Console.WriteLine("RAM: "
+                                  + (ram / 1024).ToString("N0") + " KB; CPU: "
+                                  + cpu.ToString("N1") + " %;");
+
+                Thread.Sleep(500);
+            }
+
         }
 
     }

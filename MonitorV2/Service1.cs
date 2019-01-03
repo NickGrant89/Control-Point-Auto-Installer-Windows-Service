@@ -29,14 +29,12 @@ namespace MonitorV2
             this.Timer1.Interval = 60000; //every 60 secs
             this.Timer1.Elapsed += new System.Timers.ElapsedEventHandler(this.timer1_Tick);
             Timer1.Enabled = true;
-            Library.WriteErrorLog("Service Started");
-            //LogFile.LogMessageToFile("Services Started");
 
             Timer2 = new Timer();
             this.Timer2.Interval = 60000; //every 60 secs
             this.Timer2.Elapsed += new System.Timers.ElapsedEventHandler(this.timer2_Tick);
             Timer2.Enabled = true;
-            Library.WriteErrorLog("startup worked");
+      
 
         }
 
@@ -49,38 +47,19 @@ namespace MonitorV2
 
         private void timer1_Tick(object sender, ElapsedEventArgs e)
         {
-            Library.WriteErrorLog("Registering");
-
-            if (!File.Exists(DarkTools.OCCXMLPostID))
+            if (!File.Exists(@"C:\ProgramData\Onec\Config\id.txt"))
             {
                 //Create Folder stucture, Config file and post info.
-                DarkTools.createLogFolder();
-                DarkTools.CreateFolderXMLConfig();
-                DarkTools.CreateXMLPostID();
-                DarkTools.PostInfo();
 
+                FunctionsV2.createFolder(@"C:\ProgramData\Onec\Logs");
+                FunctionsV2.createFolder(@"C:\ProgramData\Onec\Config");
+                FunctionsV2.createTxtFile(@"C:\ProgramData\Onec\Config\id.txt");
+                API.findID();
 
-            }
-            if (!File.Exists(DarkTools.OCCXMLConfig))
-            {
-
-                // Creates GetConfig File.
-                DarkTools.GetConfig();
 
 
             }
-            if (File.Exists(DarkTools.OCCXMLConfig) && File.Exists(DarkTools.OCCXMLPostID))
-            {
-              
-                MonitorQSR.RunMonitorQSR();
-
-            }
-            DarkTools.ReadPostIDXml();
-            LogFile.postRequest("register.onec.systems", DarkTools.ReadXMLID);
-            DarkTools.ReadConfigToXml();
-            LogFile.postRequest(DarkTools.ReadSiteEndpoint, MonitorV1.getPostIDV1());
-
-            
+            MonitorFunctionsV2.checkIfActive();
 
         }
 
@@ -89,7 +68,7 @@ namespace MonitorV2
         protected override void OnStop()
         {
 
-            Library.WriteErrorLog("Service Stopped");
+  
 
         }
     }

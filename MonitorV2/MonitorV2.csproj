@@ -80,10 +80,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API.cs" />
-    <Compile Include="DarkTools.cs" />
+    <Compile Include="DeviceModel.cs" />
+    <Compile Include="FunctionsV2.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="LogFile.cs" />
-    <Compile Include="MonitorOCS.cs" />
+    <Compile Include="MonitorFunctionsV2.cs" />
     <Compile Include="MyDevice.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
@@ -99,8 +100,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SupportTicket.cs" />
-    <Compile Include="Wordpress Json.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

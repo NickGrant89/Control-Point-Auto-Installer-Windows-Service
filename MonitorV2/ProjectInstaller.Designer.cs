@@ -36,11 +36,12 @@
             this.serviceProcessInstaller1.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
             this.serviceProcessInstaller1.Password = null;
             this.serviceProcessInstaller1.Username = null;
+            this.serviceProcessInstaller1.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.serviceProcessInstaller1_AfterInstall);
             // 
             // serviceInstaller1
             // 
-            this.serviceInstaller1.Description = "OneC Support Tool";
-            this.serviceInstaller1.ServiceName = "OneC Support";
+            this.serviceInstaller1.Description = "One C Monitor Tool";
+            this.serviceInstaller1.ServiceName = "One C Monitor";
             this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             this.serviceInstaller1.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.serviceInstaller1_AfterInstall);
             // 
