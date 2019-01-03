@@ -86,7 +86,6 @@
     <Compile Include="API.cs" />
     <Compile Include="DeviceModel.cs" />
     <Compile Include="FunctionsV2.cs" />
-    <Compile Include="Library.cs" />
     <Compile Include="LogFile.cs" />
     <Compile Include="MonitorFunctionsV2.cs" />
     <Compile Include="MyDevice.cs" />
